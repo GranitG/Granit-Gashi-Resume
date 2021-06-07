@@ -1,84 +1,120 @@
-%!TEX TS-program = xelatex
-\documentclass[]{friggeri-cv}
-\addbibresource{bibliography.bib}
+\documentclass[a4paper]{article}
+    \usepackage{fullpage}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{textcomp}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \textheight=10in
+    \pagestyle{empty}
+    \raggedright
 
-\begin{document}
-\header{Granit}{ Gashi}
-       {Software Engineer}
+    %\renewcommand{\encodingdefault}{cg}
+%\renewcommand{\rmdefault}{lgrcmr}
 
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
 
-% In the aside, each new line forces a line break
-\begin{aside} % In the aside, each new line forces a line break
-\section{\color{brown}Con\color{black}tact}
-125 58th street FL 1
-West New York, NJ 07093
-~
-(201) 699 9016
-~
-\href{mailto:gashig1@montclair.edu}{gashig1@montclair.edu}
-%\href{http://www.smith.com}{http://www.smith.com}
-\href{https://github.com/GranitG}{github.com/GranitG}
-\href{https://www.linkedin.com/in/granitgashi/}{linkedin.com/in/granitgashi}
-\section{\color{violet}Lang\color{black}uages}
-%\centering
-{\large JS, Java}
-{C\#, SQL, PHP}
-\section{\color{olive}Tech\color{black}nologies}
-{Postgres, Mysql, Express.js, Datagrip, Visual Studios, JetBrains, Eclipse, Windows 7/10, Mac OS, JetBrains,Github,GitBash,Git Desktop} 
-\end{aside}
+% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Summary}
+\newcommand{\area} [2] {
+    \vspace*{-9pt}
+    \begin{verse}
+        \textbf{#1}   #2
+    \end{verse}
+}
 
-I am a future software engineer with broad interests across the stack. I have a particular fondness for learning new data structures, studying software design patterns and creating or working with performant algorithms. My further interests include Programming Languages, Natural Language Processing, Databases and many more, to help better myself in this future.
+\newcommand{\lineunder} {
+    \vspace*{-8pt} \\
+    \hspace*{-18pt} \hrulefill \\
+}
 
-\section{Education}
+\newcommand{\header} [1] {
+    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+    \vspace*{-6pt} \lineunder
+}
 
-\begin{entrylist}
-\entry
-{May 2020}
-{B.S. {\normalfont in Computer Science}}
-{Montclair State University}
+\newcommand{\employer} [3] {
+    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
+}
 
-\end{entrylist}
+\newcommand{\contact} [3] {
+    \vspace*{-10pt}
+    \begin{center}
+        {\Huge \scshape {#1}}\\
+        #2 \\ #3
+    \end{center}
+    \vspace*{-8pt}
+}
 
-\section{Experience}
+\newenvironment{achievements}{
+    \begin{list}
+        {$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}
+    \end{list}
+}
 
-\subsection{Projects}
+\newcommand{\schoolwithcourses} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+    \vspace*{5pt}
+}
 
-\begin{entrylist}
+\newcommand{\school} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+}
+% END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
 
-%------------------------------------------------
+    \begin{document}
+\vspace*{-40pt}
 
-\entry
-{02/19 - Present }
-{ Rio Summer Olympics Tickets Platform}
-{Class Project}
-{\emph{Web Application} \\
-Developed platform where 3 different types of users can log in/register and reserve tickets. Administrators can create/update competition events and athletes can create autograph sessions with other users. This application was built with React/Redux/React Router and Node/Express with PostgreSQL. Also incorporates JSON web tokens to bypass user login  }
+    
 
-\entry
-{05/18 - 05/18}
-{Cash Solution}
-{Class Project}
-{\emph{Dynamic Programming} \\
-Cash Solution using Dynamic Programing in Java; collaborated with a team of 2. I was Team leader and provided majority of the code for our final project for Data Structures and Algorithms class.}
+%==== Profile ====%
+\vspace*{-10pt}
+\begin{center}
+	{\Huge \scshape {Granit Gashi}}\\
+	West New York New Jersey $\cdot$ gashigi1@montclair.edu $\cdot$ (201) 699 9016 $\cdot$ https://www.linkedin.com/in/granitgashi/\\
+\end{center}
 
-\entry
-{11/18 - 11/18}
-{StudyWitUs, HackWitUs Hackathon}
-{Wentworth Boston, Ma}
-{\emph{Hackathon Web Application} \\
-Created a website where a users can register and login; they could update their status to show what they are studying and where so other people may join them at their location. My team and I created this using BootStrap, Html, CSS, JavaScript, and some Jquery. Although Project was not finished entirely, it was good experience for my first Hackathon! }
+%==== Education ====%
+\header{Education}
+\textbf{Montclair State University}\hfill New Jersey\\
+BS Computer Science \textit{GPA: 3.3} \hfill Sep 2016 - May 2020\\
+\vspace{2mm}
 
-\entry
-{03/19 - 03/19}
-{Organized our Own Hackathon, \href {http://hawkhack.io}{HawkHack.io}}
-{Montclair, NJ}
-{\emph{Computer Club} \\
-Montclair State University has never hosted a hackathon before. The computer club at MSU which includes me, organized our first ever hackathon that had over 130 participants. We had quite a few sponsors including google, Monster, and even UPS. The whole process took us a couple of months to set up, although we were not certified by MLH, we still went through with the hackathon and it was a total success!}
+%==== Experience ====%
+\header{Self Emplyed}
+\vspace{1mm}
 
-\end{entrylist}
-%------------------------------------------------
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+	\item Built a mining rig to mine Ethereum and other crypto currencies, such as Dogecoin and Raven Coin
+	\item Camped out in front of stores over a few months for Graphics cards to start my self employment
+	\item Build multiple computer rigs for me and my friends with a lot of different components.
+\end{itemize}
 
+\header{Skills}
+\begin{tabular}{ l l }
+	Programming Languages: & Java, Javascript, PHP, SQL, React                                                   \\
+	Technologies:          & Windows 7/10, Eclipse, JetBrains, GitBash, Git Desktop, Git, Mac OS, Visual Studios \\
+\end{tabular}
+\vspace{2mm}
 
+\header{Projects}
+{\textbf{Rio Summer Olympics Tickets Platform}} {\sl React, Redux, Javascript} \hfill https://aglasswala.github.io/Summer-Olympics/\#/\\
+A platform where three different types of users can register and log in. Regular users can reserve tickets. Administrators can create and update competition events and Athletes another user type can create autograph sessions so that regular users can attend.\\
+\vspace*{2mm}
+{\textbf{Data Structures and Algorithms}} {\sl Java, Javascript} \hfill https://github.com/GranitG/DataStructuresandAlgorithms\\
+Used different Data Structures and Algorithms to complete challenges in LeetCode.com. Able to solve easy problems, medium problems, and some hard problems.\\
+\vspace*{2mm}
+{\textbf{Organized our own Hackathon}}\\
+Montclair state Uniovesity has never hosted a hackathon before, so the computer club which includes me organized our first ever hackathon that had over 130participants. We had quite a few sponosrs including google, Monster and even UPS. Although we were not cerified by MLH we still did the hackathon with the money we fund raised through school and sponsors.\\
+\vspace*{2mm}
+
+\header{Summary}
+\textbf{I am a future software engineer with a broad interest across the stack. I have a particular fondess for learning new data structures, studying software design patterns and creating or working with performant algorithms.}\\
+
+\vspace*{2mm}
+
+\ 
 \end{document}
